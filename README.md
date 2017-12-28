@@ -1,4 +1,9 @@
 # ezypay-rabbit-scheduler
+
+service RC is Rabbit Consumer
+
+service RP is Rabbit Producer
+
 ### Prerequisite 
 Rabbitmq 
 
