@@ -23,13 +23,34 @@ public class RcApplication {
 
 	@StreamListener(Sink.INPUT)
 	public void listen(Map<String, Object> msg){
-
-		Date date = new Date();
-		String strDateFormat = "hh:mm:ss a";
-		DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
-		String formattedDate= dateFormat.format(date);
-		System.out.println("end=================="+msg+formattedDate);
-
 		throw new AmqpRejectAndDontRequeueException("failed");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//please refer below for managing x-death to define number of cycles
+
+/*
+	@StreamListener(Sink.INPUT)
+	public void listen(String in, @Header(name = "x-death", required = false) Map<?,?> death) {
+		if (death != null && death.get("count").equals(3L)) {
+			// giving up - don't send to DLX
+			throw new ImmediateAcknowledgeAmqpException("Failed after 4 attempts");
+		}
+		throw new AmqpRejectAndDontRequeueException("failed");
+	}*/
