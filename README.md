@@ -22,13 +22,13 @@ The loop will continue without end, which is fine for transient problems but you
 To acknowledge a message after giving up, throw an ImmediateAcknowledgeAmqpException
 
 ### Configuraion
-`
+```Java
 spring.cloud.stream.bindings.input.destination=myDestnation
 spring.cloud.stream.bindings.input.group=consumerGroup
 spring.cloud.stream.bindings.input.consumer.max-attempts=1
 spring.cloud.stream.rabbit.bindings.input.consumer.auto-bind-dlq=true
 spring.cloud.stream.rabbit.bindings.input.consumer.dlq-ttl=5000
 spring.cloud.stream.rabbit.bindings.input.consumer.dlq-dead-letter-exchange=
-`
+```
 
 This configuration creates an exchange myDestination with queue myDestination.consumerGroup bound to a topic exchange with a wildcard routing key #. It creates a DLQ bound to a direct exchange DLX with routing key myDestination.consumerGroup. When messages are rejected, they are routed to the DLQ. After 5 seconds, the message expires and is routed to the original queue using the queue name as the routing key.
