@@ -1,4 +1,12 @@
 # ezypay-rabbit-scheduler
+### Prerequisite 
+Rabbitmq 
+
+Java
+
+mvn
+
+### Overview 
 Scheduler using rabbitmq is to set up dead lettering with time to live on the dead-letter queue (DLQ), as well as dead-letter configuration on the DLQ itself. See RabbitMQ Binder Properties for more information about the properties discussed here. Example configuration to enable this feature:
 
 Set autoBindDlq to true - the binder will create a DLQ; you can optionally specify a name in deadLetterQueueName
@@ -13,8 +21,7 @@ The loop will continue without end, which is fine for transient problems but you
 
 To acknowledge a message after giving up, throw an ImmediateAcknowledgeAmqpException
 
-### Application.properties
-
+### Configuraion
 `
 spring.cloud.stream.bindings.input.destination=myDestnation
 spring.cloud.stream.bindings.input.group=consumerGroup
