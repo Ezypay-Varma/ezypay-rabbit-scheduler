@@ -11,6 +11,7 @@ Java
 
 mvn
 
+Postman
 ### Overview 
 Scheduler using rabbitmq is to set up dead lettering with time to live on the dead-letter queue (DLQ), as well as dead-letter configuration on the DLQ itself. See RabbitMQ Binder Properties for more information about the properties discussed here. Example configuration to enable this feature:
 
